@@ -49,7 +49,7 @@ function Show-WinHttpProxy {
 
     Write-Host "`n=== WinHTTP Advanced Proxy ===" -ForegroundColor Cyan
     try {
-        $output = netsh winhttp show advancedproxy
+        $output = netsh winhttp show advproxy
         Write-Host $output
         if ($output -match 'Proxy Server\s*: (.+)') { $DetectedProxies += $matches[1] }
         if ($output -match 'Proxy Bypass List\s*: (.+)') { $ProxyExceptions += $matches[1].Split(';') | ForEach-Object { $_.Trim() } }
